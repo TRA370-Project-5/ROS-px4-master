@@ -3,6 +3,8 @@ logs/
 build/
 bin/
 lib/
+ros/ros_ws/install/
+ros/ros_ws/log/
 msg_gen/
 srv_gen/
 msg/*Action.msg

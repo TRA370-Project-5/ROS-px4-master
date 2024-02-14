@@ -1,0 +1,21 @@
+version: "3"
+services:
+  xrce:
+    build: ./xrce_dds_agent
+    image: xrce
+    network_mode: host
+    #ports:
+    #  - "8888:8888"
+    #volumes:
+    #  - .:/code
+  ros:
+    build: ./ros
+    image: ros
+    network_mode: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./ros/ros_ws:/ros_ws
+
+volumes:
+  ros_ws :
