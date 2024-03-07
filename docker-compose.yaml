@@ -8,6 +8,10 @@ services:
     #  - "8888:8888"
     #volumes:
     #  - .:/code
+  px4:
+    build: ./px4
+    image: px4
+    network_mode: host
   ros:
     build: ./ros
     image: ros
