@@ -14,6 +14,7 @@ services:
     network_mode: host
     environment:
       DISPLAY: $DISPLAY
+      PX4_SIM_HOST_ADDR: 172.17.128.1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority

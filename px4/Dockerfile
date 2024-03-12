@@ -23,4 +23,4 @@ RUN bash ./px4/Tools/setup/ubuntu.sh
 WORKDIR px4
 RUN make px4_sitl
 
-CMD ["make", "px4_sitl", "gz_x500"]
+CMD ["make", "px4_sitl_default", "none_iris"]
