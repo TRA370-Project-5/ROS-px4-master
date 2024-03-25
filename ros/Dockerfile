@@ -8,6 +8,12 @@ RUN apt-get update \
     vim \
     && rm -rf /var/lib/apt/lists/*
 
+# Install ROS stuff
+RUN apt-get update \
+    && apt-get install -y \
+    ros-humble-ros-ign-bridge \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Example of copying a file
 #COPY config/ /site_config/
