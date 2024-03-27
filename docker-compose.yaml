@@ -13,6 +13,9 @@ services:
     build: ./px4
     image: px4
     network_mode: host
+    ipc: host
+    pid: host
+    
     stdin_open: true
     tty: true
     environment:
@@ -37,6 +40,8 @@ services:
     build: ./ros
     image: ros
     network_mode: host
+    ipc: host
+    pid: host
     
     environment:
       DISPLAY: $DISPLAY

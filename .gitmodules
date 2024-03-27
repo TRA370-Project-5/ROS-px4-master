@@ -4,3 +4,6 @@
 [submodule "ros/ros_ws/src/px4/px4_ros_com"]
 	path = ros/ros_ws/src/px4/px4_ros_com
 	url = https://github.com/PX4/px4_ros_com.git
+[submodule "px4/PX4-Autopilot"]
+	path = px4/PX4-Autopilot
+	url = https://github.com/PX4/PX4-Autopilot/

@@ -18,9 +18,9 @@ RUN apt-get update \
 
 
 # Build PX4 tools
-RUN git clone https://github.com/PX4/PX4-Autopilot.git --recursive px4
-RUN bash ./px4/Tools/setup/ubuntu.sh
-WORKDIR px4
+COPY PX4-Autopilot /PX4-Autopilot
+RUN bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+WORKDIR PX4-Autopilot
 RUN make px4_sitl
 
 ENV NVIDIA_VISIBLE_DEVICES \
