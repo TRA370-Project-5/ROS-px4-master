@@ -38,7 +38,10 @@ UDP Server
 For WSL:
 Connect to WSL IP
 
-Unreal engine
+#### Gazebo
+TODO
+
+#### AirSim/Unreal engine
 Run latest 4.x version, dont run Unreal >=5.0
 
 Open incoming/outgoing TCP port 4560 and incoming/outgoing UDP port 14540, 14580. I am not sure if 145480 is needed and if outgoing is needed. Probably not...
