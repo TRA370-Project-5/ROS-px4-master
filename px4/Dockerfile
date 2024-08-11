@@ -21,7 +21,7 @@ RUN apt-get update \
 COPY PX4-Autopilot /PX4-Autopilot
 RUN bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 WORKDIR PX4-Autopilot
-RUN make px4_sitl
+RUN make px4_sitl_default
 
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
@@ -29,8 +29,11 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
 #ENV PX4_GZ_STANDALONE=1
+RUN export PX4_HOME_LAT=58.3183258113282
+RUN export PX4_HOME_LON=12.348176665867804
+RUN export PX4_HOME_ALT=0
 
-CMD ["make", "px4_sitl", "gz_x500_depth"]
+CMD ["bash"]
 
 # https://discuss.px4.io/t/solved-custom-quad-gazebo-model-runs-with-slow-real-time-factor/15784
 
