@@ -6,17 +6,17 @@ RUN apt-get update \
     && apt-get install -y \
     nano \
     vim \
+    build-essential \
+    curl \
+    libclang-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install ROS stuff
 RUN apt-get update \
     && apt-get install -y \
     ros-humble-ros-ign-bridge \
+    ros-humble-foxglove-bridge \
     && rm -rf /var/lib/apt/lists/*
-
-
-# Example of copying a file
-#COPY config/ /site_config/
 
 
 # Create a non-root user
@@ -35,6 +35,10 @@ RUN apt-get update \
   && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
   && chmod 0440 /etc/sudoers.d/$USERNAME \
   && rm -rf /var/lib/apt/lists/*
+
+# Get Rust
+RUN curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | bash -s -- -y
+RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 
 
 # Copy the entrypoint and bashrc scripts so we have 
