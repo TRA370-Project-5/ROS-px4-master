@@ -23,7 +23,7 @@ services:
       QT_X11_NO_MITSHM: 1
       #PX4_SIM_HOST_ADDR: 192.168.0.2
       NV_PRIME_RENDER_OFFLOAD: 1
-      GLX_VENDOR_LIBRARY_NAME: nvidia
+    #  GLX_VENDOR_LIBRARY_NAME: nvidia
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority
@@ -48,16 +48,16 @@ services:
       DISPLAY: $DISPLAY
       QT_X11_NO_MITSHM: 1
       NV_PRIME_RENDER_OFFLOAD: 1
-      GLX_VENDOR_LIBRARY_NAME: nvidia
+      #GLX_VENDOR_LIBRARY_NAME: nvidia
     
-    runtime: nvidia 
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    #runtime: nvidia 
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: 1
+    #          capabilities: [gpu]
     stdin_open: true
     tty: true
     volumes:
