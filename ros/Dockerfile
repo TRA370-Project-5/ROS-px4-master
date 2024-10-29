@@ -4,7 +4,12 @@ FROM osrf/ros:humble-desktop-full
 # Example of installing programs
 RUN apt-get update \
     && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    libclang-dev \
     nano \
+    python3-pip \
     vim \
     && rm -rf /var/lib/apt/lists/*
 
@@ -12,8 +17,20 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install -y \
     ros-humble-ros-ign-bridge \
+    ros-humble-action-msgs \
+    ros-$ROS_DISTRO-foxglove-bridge \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Install Rust and the cargo-ament-build plugin
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.74.0 -y
+ENV PATH=/root/.cargo/bin:$PATH
+RUN cargo install cargo-ament-build
+
+RUN pip install --upgrade pytest 
+
+# Install the colcon-cargo and colcon-ros-cargo plugins
+RUN pip install git+https://github.com/colcon/colcon-cargo.git git+https://github.com/colcon/colcon-ros-cargo.git
 
 # Example of copying a file
 #COPY config/ /site_config/
